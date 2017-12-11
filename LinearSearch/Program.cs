@@ -10,7 +10,64 @@ namespace LinearSearch
     {
         static void Main(string[] args)
         {
+            Program p = new Program();
+            int[] array = new int[] {1,2,3,4,5,6};
+
+
+            int i=p.binarySearch(array,6);
+            if (i != -1)
+            {
+                Console.WriteLine("Element "+array[i]+" present at index "+i+"");
+            }
+            else
+            {
+                Console.WriteLine("Element not present in the given array!!!");
+            }
+            //Console.ReadLine();
+        }
+
+
+     #region LinearSearch
+        public int linearSearch(int[] arr, int x)
+        {
+            for(int i=0; i<arr.Length; i++)
+            {
+                if (arr[i] == x)
+                    return i;
+            }
+            return -1;
+        }
+     #endregion LinearSearch
+
+     #region BinarySearch
+        public int binarySearch(int[] arr, int key)
+        {
+            int s= 0;
+            int e = arr.Length - 1;
+            while (s<=e)
+            {
+                int mid = (s + e) / 2;
+                if (arr[mid] == key)
+                    return mid;
+                else
+                {
+                    if (key > arr[mid])
+                        s = mid+1;
+                    else
+                        e = mid-1;                    
+                }                
+            }
+            return -1;
+            
+        }
+     #endregion BinarySearch
+
+     #region InterpolationSearch
+        public void interpolationSearch()
+        {
 
         }
+     #endregion InterpolationSearch
+
     }
 }
