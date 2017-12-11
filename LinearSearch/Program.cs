@@ -10,6 +10,7 @@ namespace LinearSearch
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
