@@ -14,7 +14,7 @@ namespace LinearSearch
             int[] array = new int[] {1,2,3,4,5,6};
 
 
-            int i=p.binarySearch(array,6);
+            int i=p.jumpSearch(array,5);
             if (i != -1)
             {
                 Console.WriteLine("Element "+array[i]+" present at index "+i+"");
@@ -23,7 +23,7 @@ namespace LinearSearch
             {
                 Console.WriteLine("Element not present in the given array!!!");
             }
-            //Console.ReadLine();
+            Console.ReadLine();
         }
 
 
@@ -68,6 +68,30 @@ namespace LinearSearch
 
         }
      #endregion InterpolationSearch
+
+
+     #region JumpSearch
+        public int jumpSearch(int[] arr, int x)
+        {
+            int l = arr.Length;
+            int step = Convert.ToInt32(Math.Sqrt(l));
+            int node = 0;
+            while (arr[node]<x)
+            {
+                node += step;
+            }
+
+            //node -= step;
+            for (int i = node; i < arr.Length; i++)
+            {
+                if (arr[i] == x)
+                    return i;
+            }
+            return -1;
+        }
+        #endregion JumpSearch
+
+
 
     }
 }
